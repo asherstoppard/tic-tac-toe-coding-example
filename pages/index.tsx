@@ -1,10 +1,14 @@
-import styled from 'styled-components'
+import React, { FC } from 'react'
+import { Button, Logo, Splash, Theme } from '../components'
 
-const Title = styled.h1`
-  color: red;
-  font-size: 50px;
-`
+const HomePage: FC = () => (
+  <>
+    <Theme />
+    <Splash>
+      <Logo />
+      <Button href="/play">Let's Play!</Button>
+    </Splash>
+  </>
+)
 
-export default function Home() {
-  return <Title>My page</Title>
-}
+export default HomePage
