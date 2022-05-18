@@ -1,13 +1,9 @@
 import styled from 'styled-components'
 
 export const Board = styled.div`
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   width: 100%;
   display: grid;
   max-width: 500px;
-  grid-template-columns: 33% 33% 33%;
+  grid-template-columns: calc(33.333% - 0.666rem) calc(33.333%  - 0.666rem) calc(33.333% - 0.666rem);
   grid-gap: 1rem;
 `

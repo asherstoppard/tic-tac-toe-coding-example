@@ -17,16 +17,16 @@ const TileButton = styled.button<{ isHighlighted: boolean, highlightColor: strin
   border-radius: 10px;
   width: 100%;
   padding-bottom: 100%;
-  border: none;
   appearance: none;
   cursor: pointer;
   transition: ease-in-out 0.5s;
+  border: 1px solid #414679;
   
   ${({ hasPiece }) => !hasPiece && css`
     &:hover,
     &:focus {
       background: #464f87;
-      transform: scale(1.05);
+      border: 1px solid #00c08c;
     }
 
     &:active {

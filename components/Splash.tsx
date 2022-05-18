@@ -7,4 +7,5 @@ export const Splash = styled.div`
   transform: translate(-50%, -50%);
   max-width: 500px;
   text-align: center;
+  width: 100%;
 `

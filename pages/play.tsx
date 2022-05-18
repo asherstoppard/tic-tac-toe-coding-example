@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import styled from 'styled-components'
-import { Board, Theme, Tile } from '../components'
+import { Board, Players, Splash, Theme, Tile } from '../components'
 
 interface IPosition {
   tileId: number;
@@ -14,20 +14,23 @@ const initialPositions: IPosition[] = new Array(9).fill(0).map((_, i) => ({
 
 export interface IInitialPlayer {
   name: string
-  piece: number,
+  piece: number
   isBot: boolean
+  playerId: number
 }
 
 const initialPlayers: IInitialPlayer[] = [
   {
     name: 'Asher',
     isBot: false,
-    piece: 1
+    piece: 1,
+    playerId: 0
   },
   {
     name: 'Bot',
     isBot: true,
-    piece: 2
+    piece: 2,
+    playerId: 1
   }
 ]
 
@@ -83,7 +86,6 @@ const PlayPage = () => {
   const [highlightRow, setHighlightRow] = useState<number[]>([])
 
   const players = initialPlayers
-  const currentMove = players[currentPlayer]
   const availableTiles = positions.filter(({ pieceId }) => !pieceId)
 
   useEffect(() => {
@@ -92,7 +94,7 @@ const PlayPage = () => {
       const chosenId = randomIntFromInterval(0, availableTiles.length - 1)
       const { tileId } = availableTiles[chosenId]
 
-      setPlayerPosition(tileId, currentPlayer)
+      setTimeout(() => setPlayerPosition(tileId, currentPlayer), 1000)
     }
   }, [currentPlayer])
 
@@ -116,22 +118,22 @@ const PlayPage = () => {
     return (
       <>
         <Theme />
-        {status === 'draw' && <p>Draw!</p>}
-        {status === 'winner' && <p>You Win!</p>}
-        {status === 'loser' && <p>You Lose!</p>}
-        <Board>
-          {positions.map(({ tileId, pieceId }) => <Tile
-            key={tileId}
-            tileId={tileId}
-            isHighlighted={highlightRow.includes(tileId)}
-            highlightColor={status === 'winner' ? '#52bdc9': '#fb687a'}
-            activePiece={pieceId} onClick={(tileIndex: number) => setPlayerPosition(tileIndex, currentPlayer)}/>
-          )}
-        </Board>
-        <Player>
-          {currentMove.name}
-          {currentMove.isBot && 'bot'}
-        </Player>
+        <Splash>
+          <Players
+            players={players}
+            currentPlayer={currentPlayer}
+            gameStatus={status}
+          />
+          <Board>
+            {positions.map(({ tileId, pieceId }) => <Tile
+              key={tileId}
+              tileId={tileId}
+              isHighlighted={highlightRow.includes(tileId)}
+              highlightColor={status === 'winner' ? '#00cd93': '#fb687a'}
+              activePiece={pieceId} onClick={(tileIndex: number) => setPlayerPosition(tileIndex, currentPlayer)}/>
+            )}
+          </Board>
+        </Splash>
       </>
     )
 }
