@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { STATUS_IN_PROGRESS, STATUS_WINNER } from '../../constants'
 import { randomIntFromRange } from '../../utils'
 import { calculateStatus } from './utils'

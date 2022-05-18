@@ -1,4 +1,4 @@
-import React, { FC } from 'react'
+import { FC } from 'react'
 import { Button, Logo, Splash, Theme } from '../components'
 
 const HomePage: FC = () => (
