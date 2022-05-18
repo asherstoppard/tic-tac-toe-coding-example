@@ -1,7 +1,6 @@
 import { STATUS_DRAW, STATUS_IN_PROGRESS, STATUS_LOSER, STATUS_WINNER } from '../../../constants'
 import { IPosition, IStatus, TLines } from '../types'
 
-
 export const calculateStatus = (positions: IPosition[], currentPlayerPieceId: number): IStatus => {
   const lines: TLines = [
     [0, 1, 2],

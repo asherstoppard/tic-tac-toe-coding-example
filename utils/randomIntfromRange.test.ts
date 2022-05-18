@@ -1,10 +1,6 @@
 import { randomIntFromRange } from './randomIntFromRange'
 
 describe('utils › randomIntFromRange', () => {
-  it('returns the upper range when numbers are sequential', () => {
-    expect(randomIntFromRange(1, 2)).toBe(2)
-  })
-
   const tests = [
     [1, 25],
     [25, 50],
