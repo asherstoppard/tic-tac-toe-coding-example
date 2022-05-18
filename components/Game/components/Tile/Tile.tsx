@@ -6,10 +6,9 @@ export interface ITileProps {
   activePiece: number
   onClick: (tileIndex: number) => void
   tileId: number
-  isHighlighted?: boolean
-  highlightColor?: string
+  isHighlighted: boolean
+  highlightColor: string
 }
-
 
 const TileButton = styled.button<{ isHighlighted: boolean, highlightColor: string, hasPiece: number }>`
   position: relative;

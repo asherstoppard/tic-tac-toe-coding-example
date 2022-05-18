@@ -1,11 +1,12 @@
 import React, { FC } from 'react'
 import styled, { css } from 'styled-components'
+import { IPlayer } from '../../types'
 
 const Status = styled.div`
   display: block;
 `
 
-const PlayerContainer = styled.div`
+const PlayerContainer = styled.div<{ isActive: boolean, isLoser: boolean }>`
   background: #222745;
   width: calc(50% - 2.5rem);
   text-align: left;
@@ -31,11 +32,12 @@ const PlayerContainer = styled.div`
   `}
 `
 
-export interface IPlayerProps {
-  name: string
-  piece: number
-  isBot: boolean
-  playerId: number
+export interface IStatus {
+  status?: string
+  statusLabel?: string
+}
+
+export interface IPlayerProps extends IPlayer {
   currentPlayer: number
   gameStatus: string
 }
@@ -63,7 +65,7 @@ const drawStatus = {
   statusLabel: 'Draw'
 }
 
-const getPlayerStatus = (gameStatus, isBot, playerId, currentPlayer) => {
+const getPlayerStatus = (gameStatus: string, isBot: boolean, playerId: number, currentPlayer: number): IStatus => {
   if (gameStatus === 'loser' && !isBot || gameStatus === 'winner' && isBot) return loserStatus
   if (gameStatus === 'winner' && !isBot || gameStatus === 'loser' && isBot) return winnerStatus
   if (gameStatus === 'draw') return drawStatus
