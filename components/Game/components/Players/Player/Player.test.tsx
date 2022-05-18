@@ -1,11 +1,11 @@
 import { Player, IPlayerProps } from './Player'
 import { render } from '@testing-library/react'
-import { IPlayer } from '../../types'
+import { IPlayer } from '../../../types'
 import {
   STATUS_DRAW,
   STATUS_WINNER,
   STATUS_LOSER
-} from '../../../../constants'
+} from '../../../../../constants'
 
 const name: string = '__NAME__'
 

@@ -1,6 +1,6 @@
 import { FC } from 'react'
 import styled, { css } from 'styled-components'
-import { IPlayer } from '../../types'
+import { IPlayer } from '../../../types'
 
 const Status = styled.div`
   display: block;
