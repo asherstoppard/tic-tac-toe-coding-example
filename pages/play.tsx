@@ -124,7 +124,7 @@ const PlayPage = () => {
             key={tileId}
             tileId={tileId}
             isHighlighted={highlightRow.includes(tileId)}
-            highlightColor={status === 'winner' ? '#26cf76': '#e02a37'}
+            highlightColor={status === 'winner' ? '#52bdc9': '#fb687a'}
             activePiece={pieceId} onClick={(tileIndex: number) => setPlayerPosition(tileIndex, currentPlayer)}/>
           )}
         </Board>

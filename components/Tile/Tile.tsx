@@ -1,6 +1,6 @@
 import React, { FC } from 'react'
 import styled, { css } from 'styled-components'
-import { Piece } from './Piece'
+import { Piece } from '../Piece'
 
 export interface ITileProps {
   activePiece: number
@@ -13,7 +13,7 @@ export interface ITileProps {
 
 const TileButton = styled.button<{ isHighlighted: boolean, highlightColor: string, hasPiece: number }>`
   position: relative;
-  background: #190a43;
+  background: #414679;
   border-radius: 10px;
   width: 100%;
   padding-bottom: 100%;
@@ -25,7 +25,7 @@ const TileButton = styled.button<{ isHighlighted: boolean, highlightColor: strin
   ${({ hasPiece }) => !hasPiece && css`
     &:hover,
     &:focus {
-      background: #120734;
+      background: #464f87;
       transform: scale(1.05);
     }
 
