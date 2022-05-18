@@ -81,7 +81,7 @@ export const Player: FC<IPlayerProps> = ({ name, playerId, isBot, currentPlayer,
   return (
     <PlayerContainer isActive={status === 'winner'} isLoser={status === 'loser'}>
       <Avatar>
-        <img src="//placekitten.com/50/50" alt=""/>
+        <img src="//placekitten.com/50/50" alt="" data-testid="player--avatar"/>
       </Avatar>
       <p>
         <strong>{name}</strong>
